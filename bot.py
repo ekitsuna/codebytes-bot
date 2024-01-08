@@ -8,8 +8,12 @@ bot = commands.Bot(command_prefix="~", intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    print("Hello")
+    print("ready")
     channel = bot.get_channel(CHANNEL_ID)
     await channel.send("codebyter")
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send("hello")  
 
 bot.run(BOT_TOKEN)
