@@ -1,2 +1,2 @@
 # codebyte-bot
-the biggest codebyter
+command = "~"
