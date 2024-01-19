@@ -1,2 +1,2 @@
 # codebyte-bot
-command = "~"
+command = "!"
