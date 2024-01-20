@@ -2,3 +2,4 @@
 command = "$"
 * picture(link, message)
 * schedule(hour, minute, message)
+* message(message)

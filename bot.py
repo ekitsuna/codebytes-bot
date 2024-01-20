@@ -35,4 +35,9 @@ async def schedule(ctx, t, min, *, message):
             await channel.send(message)
         await asyncio.sleep(60)
 
+@bot.command(pass_context=True)
+async def message(ctx, *, message):
+    channel = bot.get_channel(config.CHANNEL_ID)
+    await channel.send(message)
+
 bot.run(config.BOT_TOKEN)
