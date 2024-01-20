@@ -9,7 +9,7 @@ import config
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
+bot = commands.Bot(command_prefix="$", intents=discord.Intents.all())
 timer = datetime.datetime.now
 
 @bot.event

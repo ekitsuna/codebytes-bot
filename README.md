@@ -1,4 +1,4 @@
 # codebytes-bot
-command = "!"
+command = "$"
 * picture(message, link)
 * schedule(hour, minute, message)
