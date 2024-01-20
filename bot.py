@@ -6,6 +6,9 @@ import aiohttp
 import datetime
 import config
 
+intents = discord.Intents.default()
+intents.message_content = True
+
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 timer = datetime.datetime.now
 
@@ -15,7 +18,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def picture(ctx, message, file):
-    channel = bot.get_channel(config.CHANNEL_ID) #Whatever channel you want to send image to
+    channel = bot.get_channel(config.CHANNEL_ID) #whatever channel you want to send image to
     async with aiohttp.ClientSession() as session:
         async with session.get(file) as resp:
             img = await resp.read()
@@ -29,7 +32,6 @@ async def schedule(ctx, t, min, message):
     #delay of 30 seconds, not quite accurate but it does schedule
     while True:
         if timer().hour == int(t) and timer().minute == int(min):
-            #need to fix the message not sending the full message, only reads part of string
             await channel.send(message)
         await asyncio.sleep(60)
 
