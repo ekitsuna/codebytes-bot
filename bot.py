@@ -29,6 +29,7 @@ async def schedule(ctx, t, min, message):
     #delay of 30 seconds, not quite accurate but it does schedule
     while True:
         if timer().hour == int(t) and timer().minute == int(min):
+            #need to fix the message not sending the full message, only reads part of string
             await channel.send(message)
         await asyncio.sleep(60)
 
