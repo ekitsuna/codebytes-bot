@@ -12,7 +12,6 @@ timer = datetime.datetime.now
 @bot.event
 async def on_ready():
     print("Logged in as:", bot.user.name)
-    channel = bot.get_channel(config.CHANNEL_ID)
 
 @bot.command(pass_context=True)
 async def picture(ctx, message, file):
