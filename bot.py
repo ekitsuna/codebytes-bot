@@ -27,7 +27,7 @@ async def picture(ctx, message, file):
                 await channel.send(file=discord.File(file, "image.png"))
 
 @bot.command(pass_context=True)
-async def schedule(ctx, t, min, message):
+async def schedule(ctx, t, min, *, message):
     channel = bot.get_channel(config.CHANNEL_ID)
     #delay of 30 seconds, not quite accurate but it does schedule
     while True:
