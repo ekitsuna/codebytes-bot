@@ -1,4 +1,4 @@
 # codebytes-bot
 command = "$"
-* picture(message, link)
+* picture(link, message)
 * schedule(hour, minute, message)

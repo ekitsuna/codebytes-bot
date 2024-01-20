@@ -17,7 +17,7 @@ async def on_ready():
     print("Logged in as:", bot.user.name)
 
 @bot.command(pass_context=True)
-async def picture(ctx, message, file):
+async def picture(ctx, file, *, message):
     channel = bot.get_channel(config.CHANNEL_ID) #whatever channel you want to send image to
     async with aiohttp.ClientSession() as session:
         async with session.get(file) as resp:
