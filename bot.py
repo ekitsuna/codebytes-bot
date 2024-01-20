@@ -31,6 +31,7 @@ async def upload(ctx, attachment: discord.Attachment,* , message):
                 await channel.send(message)
                 await channel.send(file=discord.File(file, "image.gif"))
 
+#can only schedule based on same day, working on scheduling future days
 @bot.command(pass_context=True)
 async def schedule(ctx, t, min, *, message):
     channel = bot.get_channel(config.CHANNEL_ID)
