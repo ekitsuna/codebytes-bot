@@ -1,7 +1,7 @@
 from datetime import datetime
 from discord.ext import commands
 import discord
-import io, time
+import io, asyncio
 import aiohttp
 import datetime
 import config
@@ -23,14 +23,14 @@ async def picture(ctx, message, file):
             with io.BytesIO(img) as file:
                 await channel.send(message)
                 await channel.send(file=discord.File(file, "image.png"))
+
 @bot.command(pass_context=True)
 async def schedule(ctx, t, min, message):
     channel = bot.get_channel(config.CHANNEL_ID)
-    B = True
-    while B:
+    #delay of 30 seconds, not quite accurate but it does schedule
+    while True:
         if timer().hour == int(t) and timer().minute == int(min):
             await channel.send(message)
-            B = False
-        #time.sleep(60)
+        await asyncio.sleep(60)
 
 bot.run(config.BOT_TOKEN)
