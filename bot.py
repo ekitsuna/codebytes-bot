@@ -40,15 +40,22 @@ async def schedule(ctx, t, min, *, message):
             await channel.send(message)
         await asyncio.sleep(60)
 
+"""
 @bot.command(pass_context=True)
-async def spicture(ctx, t, min, attachment: discord.Attachment, *, message):
+async def spicture(ctx, attachment: discord.Attachment, t, min, *, message):
     channel = bot.get_channel(config.CHANNEL_ID)
-    #delay of 30 seconds, not quite accurate but it does schedule
-    while True:
-        if timer().hour == int(t) and timer().minute == int(min):
-            await channel.send(message)
-        await asyncio.sleep(60)
-
+    file = attachment.url
+    async with aiohttp.ClientSession() as session:
+        async with session.get(file) as resp:
+            img = await resp.read()
+            with io.BytesIO(img) as file:
+                while True:
+                    if timer().hour == int(t) and timer().minute == int(min):
+                        await channel.send(message)
+                        await channel.send(file=discord.File(file, "image.gif"))
+                    await asyncio.sleep(60)
+"""
+                    
 @bot.command(pass_context=True)
 async def message(ctx, *, message):
     channel = bot.get_channel(config.CHANNEL_ID)
