@@ -31,6 +31,6 @@ async def schedule(ctx, t, min, message):
         if timer().hour == int(t) and timer().minute == int(min):
             await channel.send(message)
             B = False
-        time.sleep(60)
+        #time.sleep(60)
 
 bot.run(config.BOT_TOKEN)
